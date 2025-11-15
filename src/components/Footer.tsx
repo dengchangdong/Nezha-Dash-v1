@@ -19,11 +19,10 @@ const Footer: React.FC = () => {
       <section className="flex flex-col">
         <section className="mt-1 flex items-center sm:flex-row flex-col justify-between gap-2 text-[13px] font-light tracking-tight text-neutral-600/50 dark:text-neutral-300/50 server-footer-name">
           <div className="flex items-center gap-1">
-            &copy;2020-{new Date().getFullYear()}{" "}
             <a href={"https://github.com/naiba/nezha"} target="_blank">
-              Nezha
+              {settingData?.data?.config?.site_name || "哪吒监控"}
             </a>
-            <p>{settingData?.data?.version || ""}</p>
+            &copy;2020-{new Date().getFullYear()}{" "}
           </div>
           <div className="server-footer-theme flex flex-col items-center sm:items-end">
             <p className="mt-1 text-[13px] font-light tracking-tight text-neutral-600/50 dark:text-neutral-300/50">
@@ -32,9 +31,9 @@ const Footer: React.FC = () => {
               </kbd>
             </p>
             <section>
-              {t("footer.themeBy")}
+              Version:
               <a href={"https://github.com/hamster1963/nezha-dash"} target="_blank">
-                nezha-dash
+                {settingData?.data?.version || ""}
               </a>
               {import.meta.env.VITE_GIT_HASH && (
                 <a href={"https://github.com/hamster1963/nezha-dash-v1/commit/" + import.meta.env.VITE_GIT_HASH} className="ml-1">
